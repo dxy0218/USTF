@@ -1,11 +1,11 @@
 # TTRPG Project Upload Packs
 
-**Purpose:** Provide recommended file sets for using USTF v3.0 inside a ChatGPT TTRPG Project under different project-file limits.
+**Purpose:** Provide recommended file sets for using USTF v3.0 inside a ChatGPT TTRPG Project while preserving spare file slots for campaign saves, Session Delta files, and state updates.
 
 This document describes two runtime upload sets:
 
-- Plus upload set: up to 25 files
-- Pro upload set: up to 40 files
+- Plus upload set: 20 files, leaving 5 spare slots under a 25-file limit
+- Pro upload set: 35 files, leaving 5 spare slots under a 40-file limit
 
 These packs are for ChatGPT Project runtime use. They are not intended to replace the full GitHub source repository.
 
@@ -15,7 +15,7 @@ These packs are for ChatGPT Project runtime use. They are not intended to replac
 
 The full USTF repository contains source specifications, templates, ADRs, book-building material, release notes, and public documentation.
 
-A ChatGPT Project should not necessarily upload the entire repository.
+A ChatGPT Project should not upload the entire repository for active campaign play.
 
 For active campaign operation, the project needs:
 
@@ -24,109 +24,126 @@ For active campaign operation, the project needs:
 3. Core invariants and operating systems
 4. Relevant genre modules
 5. Selected reference procedures and templates
+6. Spare file slots for future Session Delta and save-state updates
 
-This keeps retrieval focused and reduces noise during play.
+This keeps retrieval focused, reduces noise during play, and avoids consuming all available project-file capacity.
 
 ---
 
-## Plus Upload Set — 25 files
+## Reserve-slot policy
 
-Use this set when the project file limit is 25 files.
+Do not fill the project file limit completely.
+
+Long campaigns need spare slots for:
+
+```text
+new Session Delta files
+updated current-state files
+new knowledge-ledger snapshots
+new open-threads snapshots
+archived event summaries
+cross-chat recovery saves
+```
+
+Recommended reserve:
+
+```text
+Plus: use 20 of 25 slots, keep 5 spare.
+Pro: use 35 of 40 slots, keep 5 spare.
+```
+
+---
+
+## Plus Upload Set — 20 files
+
+Use this set when the project file limit is 25 files and 5 slots should remain free.
+
+The upload-ready pack uses unique flattened filenames to avoid duplicate `index.md` conflicts when files are uploaded into ChatGPT Projects.
 
 Recommended contents:
 
 ```text
-00-campaign-brief.md
-01-current-state.md
-02-actor-registry.md
-03-organization-state.md
-04-knowledge-ledger.md
-05-open-threads.md
-06-resource-ledger.md
-07-event-log-summary.md
-99-archive-index.md
+campaign-FSS-save-1995-01.md
+campaign-01-current-state.md
+campaign-02-actor-registry.md
+campaign-03-organization-state.md
+campaign-04-knowledge-ledger.md
+campaign-05-open-threads.md
+campaign-06-resource-ledger.md
 
-runtime/USTF_v3.0_runtime_pack.md
-runtime/campaign-state-pack-standard.md
-runtime/ustf-runtime-quickstart.md
-runtime/chatgpt-project-instructions.md
+runtime-USTF-v3-runtime-pack.md
 
-core/02-core-invariants.md
-core/04-actor-model.md
-core/05-world-state-model.md
-core/06-time-continuity-system.md
-core/07-knowledge-information-system.md
-core/08-resolution-system.md
-core/09-resource-system.md
-core/10-organization-layer.md
+core-02-core-invariants.md
+core-04-actor-model.md
+core-05-world-state-model.md
+core-06-time-continuity-system.md
+core-07-knowledge-information-system.md
+core-08-resolution-system.md
+core-09-resource-system.md
+core-10-organization-layer.md
 
-modules/modern-realist/index.md
-modules/corporate/index.md
-modules/espionage/index.md
-modules/military-war/index.md
+module-modern-realist.md
+module-corporate.md
+module-espionage.md
+module-military-war.md
 ```
 
-This is the minimum recommended operating set for the FSS / modern military-corporate campaign style.
+This is the compact recommended operating set for the FSS / modern military-corporate campaign style.
 
 ---
 
-## Pro Upload Set — 40 files
+## Pro Upload Set — 35 files
 
-Use this set when the project file limit is 40 files.
+Use this set when the project file limit is 40 files and 5 slots should remain free.
+
+The upload-ready pack uses unique flattened filenames to avoid duplicate `index.md` conflicts when files are uploaded into ChatGPT Projects.
 
 Recommended contents:
 
 ```text
-00-campaign-brief.md
-01-current-state.md
-02-actor-registry.md
-03-organization-state.md
-04-knowledge-ledger.md
-05-open-threads.md
-06-resource-ledger.md
-07-event-log-summary.md
-99-archive-index.md
+campaign-FSS-save-1995-01.md
+campaign-00-campaign-brief.md
+campaign-01-current-state.md
+campaign-02-actor-registry.md
+campaign-03-organization-state.md
+campaign-04-knowledge-ledger.md
+campaign-05-open-threads.md
+campaign-06-resource-ledger.md
+campaign-07-event-log-summary.md
+campaign-99-archive-index.md
 
-runtime/USTF_v3.0_runtime_pack.md
-runtime/campaign-state-pack-standard.md
-runtime/ustf-runtime-quickstart.md
-runtime/chatgpt-project-instructions.md
-runtime/ustf-minimal-core-pack.md
+runtime-USTF-v3-runtime-pack.md
+runtime-campaign-state-pack-standard.md
+runtime-ustf-runtime-quickstart.md
 
-core/00-overview.md
-core/01-architecture-principles.md
-core/02-core-invariants.md
-core/03-public-api.md
-core/04-actor-model.md
-core/05-world-state-model.md
-core/06-time-continuity-system.md
-core/07-knowledge-information-system.md
-core/08-resolution-system.md
-core/09-resource-system.md
-core/10-organization-layer.md
-core/11-conflict-layer.md
-core/12-investigation-layer.md
-core/13-economy-logistics-layer.md
-core/14-political-social-layer.md
-core/15-campaign-operations.md
-core/16-module-standard.md
-core/18-character-layer.md
+core-02-core-invariants.md
+core-04-actor-model.md
+core-05-world-state-model.md
+core-06-time-continuity-system.md
+core-07-knowledge-information-system.md
+core-08-resolution-system.md
+core-09-resource-system.md
+core-10-organization-layer.md
+core-11-conflict-layer.md
+core-12-investigation-layer.md
+core-13-economy-logistics-layer.md
+core-14-political-social-layer.md
+core-15-campaign-operations.md
 
-reference/world-update-cycle.md
-reference/organization-turn-procedure.md
-reference/long-term-project-procedure.md
+reference-world-update-cycle.md
+reference-organization-turn-procedure.md
+reference-long-term-project-procedure.md
 
-modules/modern-realist/index.md
-modules/corporate/index.md
-modules/espionage/index.md
-modules/military-war/index.md
-modules/medieval-political/index.md
-modules/module-compatibility-matrix.md
+module-modern-realist.md
+module-corporate.md
+module-espionage.md
+module-military-war.md
+module-medieval-political.md
 
-templates/session-delta-template.md
+template-session-delta.md
 ```
 
-This is the recommended full operating set for Pro-tier project limits.
+This is the recommended full operating set for Pro-tier project limits while preserving spare file slots for long-campaign continuity.
 
 ---
 
