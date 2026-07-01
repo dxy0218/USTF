@@ -112,6 +112,12 @@ If file slots are limited, prioritize:
 5. Relevant Genre Module
 ```
 
+For file-limit-specific upload sets, see:
+
+```text
+docs/ttrpg-project-upload-packs.md
+```
+
 Memory is helpful but non-canonical. Campaign state files are authoritative.
 
 ---
@@ -167,10 +173,9 @@ v3.x should focus on:
 
 v4.0 should only occur if Core APIs require breaking revision.
 
-
 ---
 
-## 8. License
+## 9. License
 
 USTF uses a split license model:
 
